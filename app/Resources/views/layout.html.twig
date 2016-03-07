@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <title>{% block title %}Ultimate guide to Camilo's brain{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!-- Vendor CSS -->
+        <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/simple-line-icons/css/simple-line-icons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/owl.carousel/assets/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/magnific-popup/magnific-popup.min.css') }}">
+
+
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme-elements.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme-blog.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme-shop.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme-animate.css') }}">
+
+        <!-- Current Page CSS -->
+        <link rel="stylesheet" href="{{ asset('vendor/rs-plugin/css/settings.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('vendor/rs-plugin/css/layers.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('vendor/rs-plugin/css/navigation.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('vendor/circle-flip-slideshow/css/component.css') }}" media="screen">
+
+
+        <!-- Skin CSS -->
+        <link rel="stylesheet" href="{{ asset('css/skins/default.css') }}">
+
+        <!-- Theme Custom CSS -->
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+
+        <!-- Head Libs -->
+        <script src="{{ asset('vendor/modernizr/modernizr.min.js') }}"></script>
+
+
+    {% endblock %}
+</head>
+<body>
+    <div class="body">
+        <header id="header" class="header-narrow" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 0, "stickySetTop": "0", "stickyChangeLogo": false}'>
+            <div class="header-body">
+                <div class="header-container container">
+                    <div class="header-row">
+                    <div class="header-column">
+                        <div class="header-logo">
+                            <a href="{{ path('_home') }}">
+                                <img alt="camiloenparis-logo" width="111" height="54" data-sticky-width="82" data-sticky-height="40" data-sticky-top="33" src="{{ asset('img/logo-camiloenparis.png')}}">
+                            </a>
+                        </div>
+                    </div>
+                        <div class="header-column">
+                            <div class="header-row">
+                                <div class="header-nav">
+                                    <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                    <ul class="header-social-icons social-icons hidden-xs">
+                                        <li class="social-icons-facebook"><a href="https://www.facebook.com/elcamilorodriguez" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="social-icons-twitter"><a href="https://twitter.com/camiloenparis" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="social-icons-linkedin"><a href="https://fr.linkedin.com/in/elcamilorodriguez" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                    <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+                                        <nav>
+                                            <ul class="nav nav-pills" id="mainNav">
+                                                <li class="dropdown">
+                                                    <a class="dropdown-toggle" href="#">
+                                                        About
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="{{ path('_comingSoon') }}">About this site</a></li>
+                                                        <li><a href="{{ path('_comingSoon') }}">FAQ</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-toggle" href="#">
+                                                        Camilo
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown-submenu">
+                                                            <a href="#">About me</a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a href="{{ path('_comingSoon') }}">Background</a></li>
+                                                                <li><a href="{{ path('_comingSoon') }}">My interests</a></li>
+                                                                <li><a href="{{ path('_comingSoon') }}">My life</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="{{ path('_portfolio') }}">Portfolio</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('_contact') }}">
+                                                        Contact
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% block body %}
+
+
+    {% endblock %}
+    </div>
+
+
+<footer id="footer" class="light narrow">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    <a href="{{ path('_home') }}" class="logo">
+                        <img alt="camiloenparis-logo" class="img-responsive" src="{{ asset('img/logo-footer-dark-camiloenparis.png')}}">
+                    </a>
+                </div>
+                <div class="col-md-7">
+                    <p>© Copyright 2016. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-4">
+                    <ul class="social-icons pull-right">
+                        <li class="social-icons-facebook"><a href="https://www.facebook.com/elcamilorodriguez" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li class="social-icons-twitter"><a href="https://twitter.com/camiloenparis" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li class="social-icons-linkedin"><a href="https://fr.linkedin.com/in/elcamilorodriguez" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</footer>
+
+{% block javascripts %}
+    <!-- Vendor -->
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.appear/jquery.appear.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery-cookie/jquery-cookie.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/common/common.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.validation/jquery.validation.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.stellar/jquery.stellar.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.gmap/jquery.gmap.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.lazyload/jquery.lazyload.min.js') }}"></script>
+    <script src="{{ asset('vendor/isotope/jquery.isotope.min.js') }}"></script>
+    <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('vendor/vide/vide.min.js') }}"></script>
+
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="{{ asset('js/theme.js') }}"></script>
+
+    <!-- Current Page Vendor and Views -->
+    <script src="{{ asset('vendor/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
+    <script src="{{ asset('vendor/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+    <script src="{{ asset('vendor/circle-flip-slideshow/js/jquery.flipshow.min.js') }}"></script>
+    <script src="{{ asset('js/views/view.home.js') }}"></script>
+
+    <!-- Theme Custom -->
+    <script src="{{ asset('js/custom.js') }}"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="{{ asset('js/theme.init.js') }}"></script>
+
+{% endblock %}
+</body>
+</html>

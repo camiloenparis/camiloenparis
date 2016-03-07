@@ -1,0 +1,108 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Web development and design
+{% endblock %}
+
+
+{% block body %}
+
+    <div role="main" class="main">
+        <section class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb">
+                            <li><a href="{{ path('_home') }}">Home</a></li>
+                            <li><a href="{{ path('_portfolio') }}">Portfolio</a></li>
+                            <li class="active">{{ project.0.title }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portfolio-title">
+                        <div class="row">
+                            <div class="portfolio-nav-all col-md-1">
+                                <a href="{{ path('_portfolio') }}" data-tooltip data-original-title="Back to portfolio"><i class="fa fa-th"></i></a>
+                            </div>
+                            <div class="col-md-10 center">
+                                <h2 class="mb-none">{{ project.0.title }}</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="tall">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="owl-carousel owl-theme" data-plugin-options='{"items": 1, "margin": 10, "autoplay": "true"}'>
+                        <div>
+                            <span class="img-thumbnail">
+                                <img alt="{{ [projectName,'-screenshot']|join }}" class="img-responsive" src="{{ asset(['img/portfolio/',projectName,'-screenshot-1.jpg']|join) }}">
+                            </span>
+                        </div>
+                        <div>
+                            <span class="img-thumbnail">
+                                <img alt="{{ [projectName,'-screenshot']|join }}" class="img-responsive" src="{{ asset(['img/portfolio/',projectName,'-screenshot-2.jpg']|join) }}">
+                            </span>
+                        </div>
+                        <div>
+                            <span class="img-thumbnail">
+                                <img alt="{{ [projectName,'-screenshot']|join }}" class="img-responsive" src="{{ asset(['img/portfolio/',projectName,'-screenshot-3.jpg']|join) }}">
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="portfolio-info">
+                        <div class="row">
+                            <div class="col-md-12 center">
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-calendar"></i> {{ project.0.date|date("F Y") }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="heading-primary"><strong>{{ project.0.intro }}</strong></h4>
+                    <p class="mt-xlg">
+                        {{ project.0.description|raw }}
+                    </p>
+
+                    <a href="{{ project.0.url }}" target="_blank" class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Live Preview</a> <span class="arrow hlb appear-animation" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+
+                    <ul class="portfolio-details">
+                        <li>
+                            <p><strong>Tools used on this project:</strong></p>
+
+                            <ul class="list list-inline list-icons">
+                                {% for skill in project.0.skills %}
+                                    <li><i class="fa fa-check-circle"></i> {{ skill.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

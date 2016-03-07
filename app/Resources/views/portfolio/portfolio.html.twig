@@ -1,0 +1,163 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Web development and design
+{% endblock %}
+
+{% block body %}
+
+<div role="main" class="main">
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href='{{ path('_home') }}'>Home</a></li>
+                        <li class="active">Portfolio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="owl-carousel owl-theme" data-plugin-options='{"items": 1, "margin": 10, "autoplay": "true"}'>
+                    <div>
+                        <span class="img-thumbnail">
+                            <img alt="html-css-js" height="300" class="img-responsive" src="{{ asset('img/skills/html-css-js.jpg') }}">
+                        </span>
+                    </div>
+                    <div>
+                        <span class="img-thumbnail">
+                            <img alt="php-mysql" height="300" class="img-responsive" src="{{ asset('img/skills/php-mysql.jpg') }}">
+                        </span>
+                    </div>
+                    <div>
+                        <span class="img-thumbnail">
+                            <img alt="symfony" height="300" class="img-responsive" src="{{ asset('img/skills/symfony.jpg') }}">
+                        </span>
+                    </div>
+                    <div>
+                        <span class="img-thumbnail">
+                            <img alt="adobe" height="300" class="img-responsive" src="{{ asset('img/skills/adobe.jpg') }}">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+
+
+                <p>
+                    I learned web development at the very prestigious <a href="https://3wa.fr/" target="_blank">3W Academy</a>
+                    in Paris. Their pedagogical approach is very interesting, as I was first taught the basis of HTML and CSS and later on,
+                    I was introduced to the wonders of javascript, Php and Mysql. The 3W Academy, had a particular focus on object
+                    oriented programming and teaching the
+                    <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank"> MVC architecture</a>, which is a very
+                    clean and smart way of developing websites. Over time I started learning and using some interesting tools like
+                    <a href="https://symfony.com/" target="_blank" >symfony</a> (a Frenchie Php framework),
+                    <a href="http://gulpjs.com/" target="_blank" >Gulp</a> (an incredible tool to minimize JS and CSS http requests) and
+                    <a href="http://getbootstrap.com/" target="_blank" >Bootstrap</a> (the fastest way to have a nice front end).
+                    I have also played and written a few scripts for my sites in <a href="https://www.python.org/" target="_blank">Python</a>
+                    and <a href="https://nodejs.org/en/" target="_blank">NodeJs</a>, just for the fun of it !
+                    </br>
+                    I am a self learner and some of the technical challenges, I've needed to solve on my own while working on my websites, include:
+                </p>
+                <ul class="list list-icons">
+                    <li><i class="fa fa-check"></i> Defining a smart architecture for multilingual websites</li>
+                    <li><i class="fa fa-check"></i> Displaying GeoJson data in Google maps</li>
+                    <li><i class="fa fa-check"></i> Web Scrapping</li>
+                    <li><i class="fa fa-check"></i> Using external apis (such as twilio, twitter, google, etc)</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row mt-xlg">
+            <div class="col-md-3">
+                <div class="circular-bar">
+                    <div class="circular-bar-chart" data-percent="90" data-plugin-options='{"barColor": "#E36159"}'>
+                        <strong>Php/MySql</strong>
+                        <label><span class="percent">90</span>%</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="circular-bar">
+                    <div class="circular-bar-chart" data-percent="70" data-plugin-options='{"barColor": "#0088CC", "delay": 300}'>
+                        <strong>Symfony</strong>
+                        <label><span class="percent">70</span>%</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="circular-bar">
+                    <div class="circular-bar-chart" data-percent="75" data-plugin-options='{"barColor": "#2BAAB1", "delay": 600}'>
+                        <strong>Javascript</strong>
+                        <label><span class="percent">75</span>%</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="circular-bar">
+                    <div class="circular-bar-chart" data-percent="95" data-plugin-options='{"barColor": "#353535", "delay": 900}'>
+                        <strong>Graphic design</strong>
+                        <label><span class="percent">95</span>%</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>Portfolio</h2>
+        <p>Besides from being a web developer, I am also a graphic designer and I've worked on the branding and image of different companies and projects</p>
+
+        <ul class="nav nav-pills sort-source" data-sort-id="portfolio" data-option-key="filter">
+            <li data-option-value="*" class="active"><a href="#">Show All</a></li>
+            <li data-option-value=".websites"><a href="#">Websites</a></li>
+            <li data-option-value=".design"><a href="#">Design</a></li>
+            <li data-option-value=".other"><a href="#">Other</a></li>
+        </ul>
+
+        <hr>
+
+        <div class="row">
+
+            <ul class="portfolio-list sort-destination" data-sort-id="portfolio">
+
+                {% for projectName, project in portfolio %}
+
+
+                    <li class="col-md-3 col-sm-6 col-xs-12 isotope-item {{ project.category }}">
+                        <div class="portfolio-item">
+                            <a href="{{ ['portfolio/',project.name]|join }}">
+                            <span class="thumb-info">
+                                <span class="thumb-info-wrapper">
+                                    <img src="{{ asset(['img/portfolio/',project.name,'-preview.jpg']|join) }}" class="img-responsive" alt="{{ [projectName, '_preview']|join }}">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner">{{ project.title }}</span>
+                                        <span class="thumb-info-type">{{ project.type }}</span>
+                                    </span>
+                                    <span class="thumb-info-action">
+                                        <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                    </span>
+                                </span>
+                            </span>
+                            </a>
+                        </div>
+                    </li>
+
+                {% endfor %}
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
