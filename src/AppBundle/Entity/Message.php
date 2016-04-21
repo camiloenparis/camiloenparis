@@ -2,73 +2,150 @@
 
 namespace AppBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 
+/**
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\MessageRepository")
+ * @ORM\Table(name="message")
+ */
 class Message
 {
-    /**
-     * @Assert\NotBlank()
-     */
-    protected $email;
-
 
     /**
-     * @Assert\NotBlank()
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
-    protected $subject;
+    private $id;
+
 
     /**
-     * @Assert\NotBlank()
+     * @ORM\Column(type="string")
      */
-    protected $text;
+    private $email;
+
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Type("\DateTime")
+     * @ORM\Column(type="string")
      */
-    protected $date;
+    private $name;
 
-
-    public function getText()
+    /**
+     * @return mixed
+     */
+    public function getName()
     {
-        return $this->text;
+        return $this->name;
     }
 
-    public function setText($text)
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
     {
-        $this->text = $text;
+        $this->name = $name;
     }
 
-    public function getEmail()
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $subject;
+
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text;
+
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
-        return $this->email;
+        return $this->id;
     }
 
-    public function setEmail($email)
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
     {
-        $this->email = $email;
+        $this->id = $id;
     }
 
-    public function getSubject()
-    {
-        return $this->subject;
-    }
-
-    public function setSubject($subject)
-    {
-        $this->subject = $subject;
-    }
-
+    /**
+     * @return mixed
+     */
     public function getDate()
     {
         return $this->date;
     }
 
-    public function setDate(\DateTime $date = null)
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
     {
         $this->date = $date;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    /**
+     * @param mixed $subject
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
 
 }

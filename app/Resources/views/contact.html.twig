@@ -2,14 +2,6 @@
 
 {% block body %}
 
-    {{ form_start(form, {'action': path('_contact_POST'), 'method': 'POST', 'attr': {'class': 'my-form-class'}} )}}
-        {{ form_errors(form) }}
-
-        {{ form_widget(form) }}
-
-        <input type="submit" value="Create" class="btn btn-default pull-right" />
-
-    {{ form_end(form) }}
 
     <div role="main" class="main">
         <section class="page-header">
@@ -40,32 +32,40 @@
 
                     <h2 class="mb-sm mt-sm"><strong>Contact</strong> me !</h2>
 
-                    <form id="contactForm" action="{{ path('_contact') }}" method="POST">
+                    {{ form_start(form, {'action': path('_contact'), 'attr': {'class': 'my-form-class'}} )}}
+
+                        {{ form_errors(form) }}
+
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-6">
-                                    <label>Your name *</label>
-                                    <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required>
+                                    {{ form_label(form.name, 'Name :') }}
+                                    {{ form_errors(form.name, {'attr': {'class': 'form-control'} } ) }}
+                                    {{ form_widget(form.name, {'attr': {'class': 'form-control'} } ) }}
+
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Your email address *</label>
-                                    <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required>
+                                    {{ form_label(form.email, 'Email :') }}
+                                    {{ form_errors(form.email, {'attr': {'class': 'form-control'} } ) }}
+                                    {{ form_widget(form.email, {'attr': {'class': 'form-control'} } ) }}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <label>Subject</label>
-                                    <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" id="subject" required>
+                                    {{ form_label(form.subject, 'Subject :') }}
+                                    {{ form_errors(form.subject, {'attr': {'class': 'form-control'} } ) }}
+                                    {{ form_widget(form.subject, {'attr': {'class': 'form-control'} } ) }}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <label>Message *</label>
-                                    <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message" required></textarea>
+                                    {{ form_label(form.text, 'Mesage :') }}
+                                    {{ form_errors(form.text, {'attr': {'class': 'form-control'} } ) }}
+                                    {{ form_widget(form.text, {'attr': {'class': 'form-control', 'rows':7, 'style': 'overflow:auto;resize:none'} } ) }}
                                 </div>
                             </div>
                         </div>
@@ -74,12 +74,14 @@
                                 <input type="submit" value="Send Message" class="btn btn-primary btn-lg mb-xlg" data-loading-text="Loading...">
                             </div>
                         </div>
-                    </form>
+
+                    {{ form_end(form) }}
+
                 </div>
                 <div class="col-md-6">
 
                     <h4 class="heading-primary mt-lg">Get in <strong>Touch</strong></h4>
-                    <p>Don't be shy and drop me a line! I promise I won't keep your email or spam you with stuff.
+                    <p>Don't be shy and drop me a line! <strong>I promise I won't spam you</strong> or sign you up to to undesired newsletters.
                         I would love to hear what you have to say about this website, know more about you and
                         even meet up to have a beer or something.
                     </p>
@@ -106,5 +108,5 @@
     </div>
 
 
-
 {% endblock %}
+

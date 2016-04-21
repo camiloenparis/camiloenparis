@@ -1,1 +1,9 @@
 /* Add here all your CSS customizations */
+
+/* Necessary so that flashMessage window does not display all other elements in the page */
+#flashMessage
+{
+    position: absolute;
+    top: 0px; left: 0px; right: 0px;
+    z-index: 99999;
+}

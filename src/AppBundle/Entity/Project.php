@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -66,6 +67,10 @@ class Project
     private $skills;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="Questions", mappedBy="project")
+     */
+    private $questions;
 
 
     /**
@@ -313,5 +318,12 @@ class Project
     }
 
 
+    /**
+     * @return mixed
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
 
 }

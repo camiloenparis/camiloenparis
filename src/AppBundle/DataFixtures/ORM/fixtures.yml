@@ -1,0 +1,15 @@
+AppBundle\Entity\Message:
+    genus_{1..10}:
+        email: <email()>
+        subject: <subject()>
+        text: <text(100)>
+        date: <dateTimeBetween('-200 days', 'now')>
+        isPublished: <boolean(75)>
+
+AppBundle\Entity\Questions:
+    genus.questions_{1..100}:
+        userName: <userName()>
+        userAvatarId: <numberBetween(1, 20)>
+        note: <paragraph()>
+        createdAt: <dateTimeBetween('-6 months', 'now')>
+        project: <numberBetween(1, 7)>
